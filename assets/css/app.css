@@ -4532,12 +4532,11 @@ textarea::placeholder {
 #uxora-submit-btn {
   font-size: 14px;
   line-height: 1em;
-  padding: 18px 25px;
+  padding: 12px 34px;
   font-weight: 600;
   font-family: "Inter", serif;
   width: fit-content;
   position: relative;
-  z-index: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
   display: inline-flex;
@@ -4548,10 +4547,13 @@ textarea::placeholder {
   overflow: hidden;
   color: var(--heading-color);
   background-color: var(--accent-bg);
-  overflow: hidden;
   transform-style: preserve-3d;
   align-items: center;
-  gap: 15px;
+  gap: 15px !important;
+  z-index: 1;
+  box-shadow: 0px 30px 60px 0px rgba(69, 248, 130, 0.3019607843);
+  border: medium none;
+  text-transform: uppercase;
 }
 @media (max-width: 767px) {
   .uxora-default-btn,
@@ -4559,6 +4561,17 @@ textarea::placeholder {
   #uxora-submit-btn {
     padding: 13px 20px;
   }
+}
+.uxora-default-btn::after,
+.uxora-subcribe-btn::after,
+#uxora-submit-btn::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: var(--accent-bg);
+  border: 1px solid var(--heading-color);
+  z-index: -1;
+  transition: 0.4s;
 }
 .uxora-default-btn:hover,
 .uxora-subcribe-btn:hover,
@@ -4595,6 +4608,57 @@ textarea::placeholder {
     text-align: center;
     margin-top: 30px;
   }
+}
+
+.uxora-default-btn span.line1 {
+  height: 20px;
+  width: 5px;
+  top: 5px;
+  left: 0;
+}
+
+.uxora-default-btn span {
+  position: absolute;
+  background: var(--heading-bg);
+  display: inline-block;
+  transition: all 0.4s;
+}
+
+.uxora-default-btn span.line2 {
+  height: 20px;
+  width: 5px;
+  bottom: 5px;
+  right: 0;
+}
+
+.uxora-default-btn span.line3 {
+  height: 5px;
+  width: 80px;
+  top: 0px;
+  right: 5px;
+  transition: all 0.4s;
+}
+
+.uxora-default-btn span.line4 {
+  height: 5px;
+  width: 80px;
+  bottom: 0px;
+  left: 5px;
+  transition: all 0.4s;
+}
+
+.uxora-default-btn:hover span {
+  height: 0px;
+}
+
+.uxora-default-btn:hover span.line3 {
+  height: 5px;
+  width: 0px;
+}
+
+.uxora-default-btn:hover span.line4 {
+  height: 5px;
+  width: 0px;
 }
 
 .breadcrumb-wrapper {
